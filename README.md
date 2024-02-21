@@ -1,14 +1,10 @@
-# Exentriq-GAIA.bc365
+# nodered-bc365-soap-api
 ## Installation
 
 ```bash
-npm install node-red-contrib-business-central-connection@https://github.com/ExentriqLtd/Exentriq-GAIA.bc365
+npm start
 ```
 
-## Usage
 
-```
-.....to use the node-red flow take the flow.js in example flow in the: https://github.com/ExentriqLtd/Exentriq-GAIA.bc365
-```
 
 ## License
