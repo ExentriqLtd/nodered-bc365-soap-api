@@ -3,7 +3,7 @@ const FormData = require('form-data');
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const port = 20220;
+const port = process.env.PORT || 20220;
 const soap = require('soap');
 
 /**
@@ -14,7 +14,6 @@ const soap = require('soap');
  * @returns 
  */
 async function getClientSoap(accessToken, SOAPUrl, serverHost) {
-    console.log("getClientSoap:::", accessToken, SOAPUrl, serverHost)
     let client = null;
     try {
         const options = {
@@ -94,7 +93,6 @@ app.get('/', (req, res) => {
  */
 app.post('/odatav4/company', (req, res) => {
     const config = req.body;
-    console.log("/odatav4/company::start", config)
     getOauth2(config)
         .then(async (response) => {
             const url = `${config.baseUrl}/${config.tenant}/${config.environment}/ODataV4/Company(\'${config.company}\')/${config.append}`
@@ -128,7 +126,6 @@ app.get('/wsdlDynamic', (req, res) => {
  */
 app.post('/methods', (req, res) => {
     const config = req.body;
-    console.log("/methods:start", config)
     getOauth2(config)
         .then(async (response) => {
             const url = config.SOAPUrl;
